@@ -1,0 +1,15 @@
+
+{% csrf_token %}
+
+{{ form }}
+<button type="submit">Сохранить</button>
+
+
+{% comment %}
+<input name="todo_text" value="{{todo.text}}"/>
+<input name="todo_priority" value="{{todo.priority}}"/>
+<button type="submit">Сохранить</button>
+
+<label>Выполнено:</label>
+<input type="checkbox" name="todo_done" value="1"/> 
+{% endcomment %}

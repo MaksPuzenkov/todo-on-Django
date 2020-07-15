@@ -1,0 +1,33 @@
+{% extends 'todo/base_todo.html' %}
+
+{% block title %}
+    Show Todo
+{% endblock %}
+
+{% block content %}
+<h1>{{name}}</h1>
+<ul>
+    {% for todo in todos %}
+        <li>{{todo.text}} {{todo.priority}} 
+            {% if todo.done %}
+                <strong>Выполнено</strong>
+            {% else %}
+                <span>Не выполнено</span>
+            {% endif %}
+            <form action="{% url 'delete_todo_url' todo_id=todo.id %}" method="GET">
+                <button type="submit">Удалить</button>
+            </form>
+            <form action="/todo/" method="GET">
+                <input name="todo_id"  value="{{todo.id}}" style="visibility: hidden" />
+                <button type="submit">Редактировать</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+<div style="color:red">{{error_text}}</div>
+
+<form method="POST" action="">
+    {% include 'todo/edit_form.html' %}
+</form>
+
+{% endblock %}

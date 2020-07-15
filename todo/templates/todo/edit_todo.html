@@ -1,0 +1,11 @@
+{% extends 'todo/base_todo.html' %}
+
+{% block title %}
+    Edit Todo
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="/todo/edit/{{todo.id}}">
+    {% include 'todo/edit_form.html' %}
+</form>
+{% endblock %}
